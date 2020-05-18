@@ -19,7 +19,7 @@ public class SolutionV1 {
         l22.next = l23;
 
         SolutionV1 solution = new SolutionV1();
-        System.out.println(ListNode.toValList(solution.mergeTwoLists(l11, l21)));
+        System.out.println(ListNode.ofValues(solution.mergeTwoLists(l11, l21)));
     }
 
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {

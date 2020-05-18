@@ -16,7 +16,7 @@ public class SolutionV2 {
         // l14.next = l15;
 
         SolutionV2 solution = new SolutionV2();
-        System.out.println(ListNode.toValList(solution.rotateRight(l11, 7)));
+        System.out.println(ListNode.ofValues(solution.rotateRight(l11, 7)));
 
     }
 

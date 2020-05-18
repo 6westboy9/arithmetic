@@ -26,7 +26,7 @@ public class SolutionV1 {
 
         ListNode[] listNodes = {l11, l21, l31};
         SolutionV1 solution = new SolutionV1();
-        System.out.println(ListNode.toValList(solution.mergeKLists(listNodes)));
+        System.out.println(ListNode.ofValues(solution.mergeKLists(listNodes)));
     }
 
     // 1-4-5

@@ -17,7 +17,7 @@ public class ListNode {
 		next = null;
 	}
 
-	public static List<Integer> toValList(ListNode node) {
+	public static List<Integer> ofValues(ListNode node) {
 		List<Integer> list = new ArrayList<>();
 		while (node != null) {
 			list.add(node.val);

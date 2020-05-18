@@ -19,7 +19,7 @@ public class SolutionV2 {
 	}
 
 	/**
-	 * 方法二
+	 * 方法二（推荐）
 	 *
 	 * @param nums   旋转后的数组
 	 * @param target 目标值
@@ -40,25 +40,26 @@ public class SolutionV2 {
 			// 注意此处的 = 情况，假设此时为 > ，不包含 =，比如 nums=[5, 4]，target=4 时，会出错
 			// = 的情况只有为两个元素时才会出现，因为数组元素值的前提是无重复元素值，只有数组元素为两个时，会存在 nums[mid] = nums[low] 的情况
 			// 此处加了 = 后刚好可以处理这种特殊情况
+
+			// 左边有序
 			if (nums[mid] >= nums[low]) {
 				// 目标值在左边有序部分，其中 target == nums[mid] 已经在 ① 统一处处理
 				if (target >= nums[low] && target < nums[mid]) {
 					high = mid - 1;
 				} else {
-					// 目标值在右边循环数组中
-					low = mid + 1;
+					low = mid + 1; // 目标值在右边数组中
 				}
-			} else { // 否则，右边有序
-				//	目标值在右边有序部分，其中 target == nums[mid] 已经在 ① 统一处处理
+			}
+			// 否则，右边有序
+			else {
+				// 目标值在右边有序部分，其中 target == nums[mid] 已经在 ① 统一处处理
 				if (target > nums[mid] && target <= nums[high]) {
 					low = mid + 1;
 				} else {
-					// 目标值在左边循环数组中
-					high = mid - 1;
+					high = mid - 1; // 目标值在左边数组中
 				}
 			}
 		}
-
 		return -1;
 	}
 

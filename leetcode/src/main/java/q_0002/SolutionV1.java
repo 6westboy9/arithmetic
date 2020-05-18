@@ -19,7 +19,7 @@ public class SolutionV1 {
         l22.next = l23;
 
         SolutionV1 solution = new SolutionV1();
-        System.out.println(ListNode.toValList(solution.addTwoNumbers(l11, l21)));
+        System.out.println(ListNode.ofValues(solution.addTwoNumbers(l11, l21)));
 
     }
 

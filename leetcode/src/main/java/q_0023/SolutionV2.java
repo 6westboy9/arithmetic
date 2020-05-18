@@ -30,7 +30,7 @@ public class SolutionV2 {
 
         ListNode[] listNodes = {l11, l21, l31};
         SolutionV2 solution = new SolutionV2();
-        System.out.println(ListNode.toValList(solution.mergeKLists(listNodes)));
+        System.out.println(ListNode.ofValues(solution.mergeKLists(listNodes)));
     }
 
     // 利用优先级队列

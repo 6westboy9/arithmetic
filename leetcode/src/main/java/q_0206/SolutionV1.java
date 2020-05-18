@@ -23,7 +23,7 @@ public class SolutionV1 {
 		node4.next = node5;
 
 		SolutionV1 solution = new SolutionV1();
-		System.out.println(ListNode.toValList(solution.reverseList(node1)));
+		System.out.println(ListNode.ofValues(solution.reverseList(node1)));
 	}
 
 	/**
