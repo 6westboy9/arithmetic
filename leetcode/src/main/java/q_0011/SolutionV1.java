@@ -12,16 +12,26 @@ public class SolutionV1 {
 		System.out.println(solution.maxArea(height));
 	}
 
+	/**
+	 * 双边移动，谁小先移动谁
+	 */
 	public int maxArea(int[] height) {
-		int maxarea = 0, left = 0, right = height.length - 1;
+		int maxArea = 0, left = 0, right = height.length - 1;
+		int minLength, area;
 		while (left < right) {
-			maxarea = Math.max(maxarea, Math.min(height[left], height[right]) * (right - left));
-			if (height[left] < height[right]) {
-				left++;
-			} else {
-				right--;
-			}
+			// 更优雅的写法
+			minLength = height[left] < height[right] ? height[left++] : height[right--];
+			area = (right - left) * minLength;
+			maxArea = Math.max(maxArea,  area);
+
+			// maxArea = Math.max(maxArea, Math.min(height[left], height[right]) * (right - left));
+			//
+			// if (height[left] < height[right]) {
+			// 	left++;
+			// } else {
+			// 	right--;
+			// }
 		}
-		return maxarea;
+		return maxArea;
 	}
 }

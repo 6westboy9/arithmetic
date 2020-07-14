@@ -32,17 +32,20 @@ public class SolutionV1 {
 
         boolean ret = false;
         while (true) {
+            // 慢指针走一步
             slow = slow.next;
+
+            // 快指针走两步
+            fast = fast.next;
+            if (fast == null) {
+                break;
+            }
             fast = fast.next;
             if (fast == null) {
                 break;
             }
 
-            fast = fast.next;
-            if (fast == null) {
-                break;
-            }
-
+            // 判断是否重叠
             if (slow.val == fast.val) {
                 ret = true;
                 break;

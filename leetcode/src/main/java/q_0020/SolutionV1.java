@@ -15,6 +15,7 @@ public class SolutionV1 {
 		Stack stack = new Stack(chars.length + 1);
 		stack.push('?');
 		for (char ch : chars) {
+			// 第一步：如果是右括号弹出进行匹配
 			if (ch == ')' && stack.get() == '(') {
 				stack.pop();
 				continue;
@@ -30,6 +31,7 @@ public class SolutionV1 {
 				continue;
 			}
 
+			// 第二步：如果是左括号进行压栈
 			if (ch == '(' || ch == '{' || ch == '[') {
 				stack.push(ch);
 			} else {

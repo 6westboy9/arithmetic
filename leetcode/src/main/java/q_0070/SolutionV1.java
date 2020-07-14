@@ -1,14 +1,11 @@
 package q_0070;
 
-import javax.sound.midi.Soundbank;
-
 /**
  * @author westboy
  * @since 2020/2/10
  */
 public class SolutionV1 {
     public static void main(String[] args) {
-
         SolutionV1 solution = new SolutionV1();
         System.out.println(solution.climbStairs(5));
     }
@@ -18,10 +15,12 @@ public class SolutionV1 {
     // 		1
     //
     // f(2)=2
+	//
     // 		1 + 1
     // 		2
     //
     // f(3)=3
+	//
     // 		1 + 1 + 1
     // 		1 + 2
     // 		2 + 1
@@ -34,6 +33,8 @@ public class SolutionV1 {
     // 		1 + 1 + 2
     // 		2 + 1 + 1
     // 		2 + 2
+
+	// 找 最近 重复子问题
 
     // f(n) = f(n-1) + f(n-2)
     // public int climbStairs(int n) {

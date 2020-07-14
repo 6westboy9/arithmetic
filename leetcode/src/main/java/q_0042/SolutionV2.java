@@ -19,7 +19,7 @@ public class SolutionV2 {
 	 * 第二步：再次遍历累加计算每个元素所能达到的最高位置
 	 */
 	public int trap(int[] height) {
-		// 步骤一：① 先求得每个元素左边最高高度
+		// 步骤一：先求得每个元素左边最高高度
 		int t = 0;
 		int len = height.length;
 		int[] helperLeft = new int[len];
@@ -30,7 +30,7 @@ public class SolutionV2 {
 			helperLeft[i] = t;
 		}
 
-		// 步骤一：② 先求得每个元素左边最高高度
+		// 步骤一：先求得每个元素左边最高高度
 		t = 0;
 		int[] helperRight = new int[len];
 		for (int i = len - 1; i >= 0; i--) {
