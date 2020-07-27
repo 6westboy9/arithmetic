@@ -1,9 +1,10 @@
 package q_0215;
 
-import java.util.Arrays;
 import java.util.Random;
 
 /**
+ * 数组中第 K 个最大元素
+ *
  * @author westboy
  * @since 2020/3/16
  */
@@ -20,9 +21,9 @@ public class SolutionV1 {
         return quickSelect(nums, 0, len - 1, len - k);
     }
 
-	/**
-	 * @param kSmallest 第 k 大元素之前元素个数
-	 */
+    /**
+     * @param kSmallest 第 k 大元素之前元素个数
+     */
     public int quickSelect(int[] nums, int left, int right, int kSmallest) {
         // System.out.println(Arrays.toString(nums) + ", left=" + left + ", right=" + right);
 
