@@ -20,6 +20,8 @@ public class SolutionV1 {
 		int minLength, area;
 		while (left < right) {
 			// 更优雅的写法
+			// 指针移动规则：左边界高度小于右边界高度，右移左边界，否则，左移右边界
+			// 指针移动规则证明：https://leetcode-cn.com/problems/container-with-most-water/solution/container-with-most-water-shuang-zhi-zhen-fa-yi-do/
 			minLength = height[left] < height[right] ? height[left++] : height[right--];
 			area = (right - left) * minLength;
 			maxArea = Math.max(maxArea,  area);

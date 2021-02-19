@@ -1,6 +1,8 @@
 package q_0042;
 
 /**
+ * 接雨水
+ *
  * @author westboy
  * @since 2020/4/26
  */

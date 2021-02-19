@@ -5,6 +5,14 @@ import java.util.*;
 /**
  * 字母异位词分组
  *
+ * 输入: ["eat", "tea", "tan", "ate", "nat", "bat"]
+ * 输出:
+ * [
+ *   ["ate","eat","tea"],
+ *   ["nat","tan"],
+ *   ["bat"]
+ * ]
+ *
  * @author pengbo.wang
  * @date 2020/07/27 8:01 下午
  */

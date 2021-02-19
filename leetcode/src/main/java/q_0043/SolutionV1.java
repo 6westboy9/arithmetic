@@ -3,6 +3,8 @@ package q_0043;
 import java.util.Arrays;
 
 /**
+ * 字符串相乘
+ *
  * @author westboy
  * @since 2020/4/22
  */
@@ -13,6 +15,12 @@ public class SolutionV1 {
 		System.out.println(solution.multiply("123", "45"));
 	}
 
+	// [0, 0, 0, 1, 5]
+	// [0, 0, 1, 3, 5]
+	// [0, 0, 2, 3, 5]
+	// [0, 1, 0, 3, 5]
+	// [0, 1, 5, 3, 5]
+	// [0, 5, 5, 3, 5]
 	public String multiply(String num1, String num2) {
 		if ("0".equals(num1) || "0".equals(num2)) {
 			return "0";

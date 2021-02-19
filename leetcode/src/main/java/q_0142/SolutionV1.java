@@ -22,15 +22,19 @@ public class SolutionV1 {
         System.out.println(solution.detectCycle(l11).val);
     }
 
+    // https://leetcode-cn.com/problems/linked-list-cycle-ii/solution/xiang-xi-tu-jie-ken-ding-kan-de-ming-bai-by-xixili/
     public ListNode detectCycle(ListNode head) {
 
         ListNode fast = head;
         ListNode slow = head;
 
         while (fast != null && fast.next != null) {
+            // 慢指针走一步
             slow = slow.next;
+            // 快指针走两步
             fast = fast.next.next;
 
+            // 快慢指针第一次相遇时
             if (slow == fast) {
                 slow = head;
                 while (slow != fast) {

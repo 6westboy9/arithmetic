@@ -22,10 +22,12 @@ public class SolutionV2 {
     }
 
     public void moveZeroes(int[] nums) {
-        int j = 0;
+        // 非 0 元素的右边界
+        int right = 0;
         for (int i = 0; i < nums.length; i++) {
+            // 判定需要进行交换条件
             if (nums[i] != 0) {
-                swap(nums, i, j++);
+                swap(nums, i, right++);
             }
         }
     }

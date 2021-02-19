@@ -20,7 +20,8 @@ public class SolutionV1 {
 		head2.next = head3;
 		head3.next = head4;
 
-
+		// headA 0 - 9 - 1 - 2 - 4
+		// headB         3 /
 		headA.next = head1;
 		headB.next = head3;
 
@@ -50,24 +51,24 @@ public class SolutionV1 {
 			nodeB = nodeB.next;
 		}
 
-		// ② 尾节点相同说明相交
-		if (aTailNode == bTailNode) {
-			if (aLength > bLength) {
-				for (int i = 0; i < aLength - bLength; i++) {
-					headA = headA.next;
-				}
-			} else {
-				for (int i = 0; i < bLength - aLength; i++) {
-					headB = headB.next;
-				}
+		// ② 找到 headA 和 headB 长度相同时，长链表的起始位置
+		if (aLength > bLength) {
+			for (int i = 0; i < aLength - bLength; i++) {
+				headA = headA.next;
 			}
+		} else {
+			for (int i = 0; i < bLength - aLength; i++) {
+				headB = headB.next;
+			}
+		}
 
-			// ③ headA 和 headB 从相同位置出发
+
+		// ③ 尾节点相同说明相交
+		if (aTailNode == bTailNode) {
 			while (headA != headB) {
 				headA = headA.next;
 				headB = headB.next;
 			}
-
 			// System.out.println("aLength: " + aLength + ", aTailNode: " + (aTailNode == null ? null : aTailNode.val) + ", headA: " + headA.val);
 			// System.out.println("bLength: " + bLength + ", bTailNode: " + (bTailNode == null ? null : bTailNode.val) + ", headB: " + headB.val);
 			return headA;

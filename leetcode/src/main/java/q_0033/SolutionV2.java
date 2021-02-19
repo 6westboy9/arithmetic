@@ -8,31 +8,37 @@ public class SolutionV2 {
 
 	public static void main(String[] args) {
 		// int[] nums = {4, 5, 6, 1, 2, 3};
-		int[] nums = {4, 5, 6, 7, 0, 1, 2};
-		// int[] nums = {4, 1, 2, 3};
+		// int[] nums = {4, 5, 6, 7, 0, 1, 2};
+		int[] nums = {4, 1, 2, 3};
 		// int[] nums = {1, 2, 3};
 		// int[] nums = {1, 2, 3, 4, 5};
 		// System.out.println(searchV1(nums, 6));
 		SolutionV2 v2 = new SolutionV2();
-		System.out.println(v2.search(nums, 0));
+		System.out.println(v2.search(nums, 2));
 		// System.out.println(getRotationIndex(nums));
 	}
 
 	/**
-	 * 方法二（推荐）
+	 * 方法二（易理解，推荐）
 	 *
 	 * @param nums   旋转后的数组
 	 * @param target 目标值
 	 * @return 旋转后的数组中与目标值相等的元素下标，没有找到返回 -1
 	 */
 	public int search(int[] nums, int target) {
-		int low = 0;
-		int high = nums.length - 1;
+		int low = 0;                // nums 数据起始下标
+		int high = nums.length - 1; // nums 数组截止下标
 
 		while (low <= high) {
+			// nums 为奇数个数时，[4, 5, 1, 2, 3] 中间元素为 1
+			// nums 为偶数个数时，[4, 1, 2, 3] 中间元素为 1
 			int mid = (low + high) / 2;
+
+			System.out.println("中间元素下标:" + mid + ", 值:" + nums[mid]);
+
 			// ①
 			if (nums[mid] == target) {
+				System.out.println("中间元素下标对应值与目标值相等, 返回中间元素下标:" + mid);
 				return mid;
 			}
 
@@ -41,7 +47,11 @@ public class SolutionV2 {
 			// = 的情况只有为两个元素时才会出现，因为数组元素值的前提是无重复元素值，只有数组元素为两个时，会存在 nums[mid] = nums[low] 的情况
 			// 此处加了 = 后刚好可以处理这种特殊情况
 
-			// 左边有序
+			// 思路：先找到中间元素，观察左右区间是否有序
+			// 左区间有序，判断目标元素是否在左区间，如果在，high = mid - 1；如果不在，low = mid + 1
+			// 右区间有序，判断目标元素是否在右区间，如果在，low = mid + 1；如果不在，high = mid - 1
+
+			// mid 左边有序
 			if (nums[mid] >= nums[low]) {
 				// 目标值在左边有序部分，其中 target == nums[mid] 已经在 ① 统一处处理
 				if (target >= nums[low] && target < nums[mid]) {
@@ -50,7 +60,9 @@ public class SolutionV2 {
 					low = mid + 1; // 目标值在右边数组中
 				}
 			}
-			// 否则，右边有序
+
+			// mid 右边有序
+			// 否则 nums[mid] < nums[low]，右边有序 [4,1,2,3] nums[mid]=1 nums[low]=3
 			else {
 				// 目标值在右边有序部分，其中 target == nums[mid] 已经在 ① 统一处处理
 				if (target > nums[mid] && target <= nums[high]) {

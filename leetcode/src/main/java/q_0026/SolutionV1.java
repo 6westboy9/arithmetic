@@ -33,14 +33,20 @@ public class SolutionV1 {
 			return 0;
 		}
 
-		int left = 0;
+		// right 指向的是去除重复项之后的数组的右边界
+		int right = 0;
 		for (int i = 1; i < nums.length; i++) {
-			if (nums[left] != nums[i]) {
-				swap(nums, i, ++left);
+
+			// 通过有序数组右边界元素值与 i 指针指向的元素值进行比较，不相等，就要插入到有序无重复项数组中去
+			// 已经判定需要交换时，先执行 ++right 后交换
+			if (nums[right] != nums[i]) {
+				swap(nums, i, ++right);
 			}
 			System.out.println(Arrays.toString(nums));
 		}
-		return left + 1;
+
+		// right 为新的有序无重复项数组的下标，那么数组长度为 right+1
+		return right + 1;
 	}
 
 	private void swap(int[] nums, int i, int j) {

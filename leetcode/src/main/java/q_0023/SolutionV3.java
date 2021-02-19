@@ -29,12 +29,14 @@ public class SolutionV3 {
         System.out.println(ListNode.ofValues(solution.mergeKLists(listNodes)));
     }
 
+    // 推荐
     public ListNode mergeKLists(ListNode[] lists) {
         if (lists.length == 0) {
             return null;
         }
 
         int k = lists.length;
+        // 一开始有 K 个链表，啥时候合并完只剩下一个链表即合并完成
         while (k > 1) {
             int idx = 0;
 

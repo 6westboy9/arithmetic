@@ -34,19 +34,25 @@ public class SolutionV1 {
 		int curRow = minRow;
 		int curColumn = minColumn;
 
-
+		// 按行从第一列到最后一列
 		while (curColumn != maxColumn) {
 			matrix[curRow][curColumn] = i++;
 			curColumn++;
 		}
+
+		// 按列从第一行到最后一行
 		while (curRow != maxRow) {
 			matrix[curRow][curColumn] = i++;
 			curRow++;
 		}
+
+		// 按行从最后一列到第一列
 		while (curColumn != minColumn) {
 			matrix[curRow][curColumn] = i++;
 			curColumn--;
 		}
+
+		// 按列从最后一行到第一行
 		while (curRow != minRow) {
 			matrix[curRow][curColumn] = i++;
 			curRow--;

@@ -7,7 +7,7 @@ import java.util.Queue;
  * @author westboy
  * @since 2020/1/14
  */
-public class Question_14 {
+public class Question_04 {
 
 	public static void main(String[] args) {
 

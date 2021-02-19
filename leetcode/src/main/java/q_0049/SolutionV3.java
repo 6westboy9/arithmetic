@@ -6,6 +6,16 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * 字母异位词分组
+ *
+ * 输入: ["eat", "tea", "tan", "ate", "nat", "bat"]
+ * 输出:
+ * [
+ *   ["ate","eat","tea"],
+ *   ["nat","tan"],
+ *   ["bat"]
+ * ]
+ *
  * @author pengbo.wang
  * @date 2020/07/27 8:44 下午
  */

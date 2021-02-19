@@ -11,7 +11,7 @@ import java.util.Arrays;
 public class SolutionV1 {
 
     public static void main(String[] args) {
-        int[] nums = {1, 0, 0, 3, 12};
+        int[] nums = {1, 4, 0, 3, 12};
 
         System.out.println(Arrays.toString(nums));
 
@@ -21,8 +21,32 @@ public class SolutionV1 {
         System.out.println(Arrays.toString(nums));
     }
 
+    /**
+     * 1 4 0 3 12           1 4 0 3 12
+     * j                    j
+     * i                    i
+     *
+     * 1 4 0 3 12           1 4 0 3 12
+     *   j                    j
+     *   i                    i
+     *
+     * 1 4 0 3 12           1 4 0 3 12
+     *     j                    j
+     *     i                    i
+     *
+     * 1 4 0 3 12           1 4 3 0 12
+     *     j                      j
+     *       i                    i
+     *
+     * 1 4 3 0 12           1 4 3 12 0
+     *       j                       j
+     *         i                     i
+     *
+     * 可以将 j 理解为一个边界，左边（不包含 j）都是相对顺序的非 0 元素
+     * 右边（包含 j）都是 0 元素
+     */
     public void moveZeroes(int[] nums) {
-        int j = 0; // 记录要填入的非零元素位置，在遍历数组时，如果遇到非零元素就填入到 j 这个位置，j++ 向前移动
+        int j = 0;
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] != 0) {
                 nums[j] = nums[i];

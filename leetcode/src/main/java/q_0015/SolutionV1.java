@@ -27,7 +27,7 @@ public class SolutionV1 {
 			return ans;
 		}
 
-		// 先排序
+		// 先排序，正序排序
 		Arrays.sort(nums);
 
 		// 图解参考：https://leetcode-cn.com/problems/3sum/solution/hua-jie-suan-fa-15-san-shu-zhi-he-by-guanpengchn
@@ -36,7 +36,7 @@ public class SolutionV1 {
 			if (nums[i] > 0) {
 				break;
 			}
-			// 去重
+			// 去重优化
 			if (i > 0 && nums[i] == nums[i - 1]) {
 				continue;
 			}
@@ -47,11 +47,11 @@ public class SolutionV1 {
 				if (sum == 0) {
 					ans.add(Arrays.asList(nums[i], nums[left], nums[right]));
 
-					// 优化去重
+					// 去重优化
 					while (left < right && nums[left] == nums[left + 1]) {
 						left++;
 					}
-					// 优化去重
+					// 去重优化
 					while (left < right && nums[right] == nums[right - 1]) {
 						right--;
 					}
@@ -59,8 +59,10 @@ public class SolutionV1 {
 					left++;
 					right--;
 				} else if (sum < 0) {
+					// sum < 0 需要右移
 					left++;
 				} else {
+					// sum > 0 需要左移
 					right--;
 				}
 			}
