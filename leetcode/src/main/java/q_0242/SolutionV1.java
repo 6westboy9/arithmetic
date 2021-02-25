@@ -52,7 +52,7 @@ public class SolutionV1 {
      * 思路同上，但是更优
      */
     public boolean isAnagramV2(String s, String t) {
-        int[] res = new int[26];
+        byte[] res = new byte[26];
         for (char ch1 : s.toCharArray()) {
             res[ch1 - 'a']++;
         }

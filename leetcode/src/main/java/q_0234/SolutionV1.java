@@ -43,7 +43,7 @@ public class SolutionV1 {
             return true;
         }
 
-        // ① 寻找中间节点
+        // 第一步骤：寻找中间节点
         ListNode slow = head;
         ListNode fast = head;
         while (fast.next != null && fast.next.next != null) {
@@ -57,13 +57,13 @@ public class SolutionV1 {
         System.out.println(slow.hashCode() + ":" + slow.val);
         System.out.println(fast.hashCode() + ":" + fast.val);
 
-        // ② 反转后半部分
+        // 第二步骤：反转后半部分
         ListNode right = slow.next;
         ListNode rightAfterConvert = reconvert(right);
 
         System.out.println(ListNode.ofValues(rightAfterConvert));
 
-        // ③ 对比
+        // 第三步骤：对比
         ListNode current = head;
         while (rightAfterConvert != null && current != null) {
             if (rightAfterConvert.val != current.val) {

@@ -20,10 +20,11 @@ public class SolutionV1 {
 			return 0;
 		}
 
+		// map 存储的是字符与其索引的映射
 		HashMap<Character, Integer> map = new HashMap<>();
 		int max = 0;
 
-		// 滑动窗口最左索引
+		// 滑动窗口左边界
 		int left = 0;
 
 		for (int i = 0; i < s.length(); i++) {

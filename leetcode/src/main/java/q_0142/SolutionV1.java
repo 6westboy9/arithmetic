@@ -10,7 +10,7 @@ public class SolutionV1 {
         ListNode l13 = new ListNode(0);
         ListNode l14 = new ListNode(-4);
 
-        // 3 -> 2 -> 0 -> 4
+        // 3 -> 2 -> 0 -> 4  返回链表开始入环的第一个节点
         //       \________|
 
         l11.next = l12;

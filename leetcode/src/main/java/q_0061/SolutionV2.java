@@ -42,10 +42,9 @@ public class SolutionV2 {
 
 
         ListNode curNode = head;
-        //
         // 寻找新的链表的头节点，新的链表的头节点是第 n - (k % n) + 1 个节点，新的链表的尾节点是第 n - (k % n) 个节点
         int i = 1;
-        while (i < n - k % n) { // 当 i = n - k % n 时，curNode 为新的链表的尾节点，而新的 链表的头节点为 curNode.next
+        while (i < n - k % n) { // 当 i = n - k % n 时，curNode 为新的链表的尾节点，而新 链表的头节点为 curNode.next
             curNode = curNode.next;
             i++;
         }

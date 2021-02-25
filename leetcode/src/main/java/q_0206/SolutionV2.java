@@ -27,24 +27,24 @@ public class SolutionV2 {
 
     // 1->2->3->4->5->NULL
 	// 5->4->3->2->1->NULL
-
     public ListNode reverseList(ListNode node) {
-    	// 反转后链表的前驱节点
-        ListNode preNode = null;
-        ListNode postNode;
+    	// 反转后链表的头节点
+        ListNode head = null;
+        // 借助临时节点用于遍历
+        ListNode temp;
         while (node != null) {
         	// 先使用 postNode 存储需要遍历的下一个节点
-            postNode = node.next;
+            temp = node.next;
 
-            // 先设置当前节点的后继节点为已经反转后的链表的前驱节点
-            node.next = preNode;
-            // 反转后的链表前驱节点设置为当前节点
-            preNode = node;
+            // ======================== 核心步骤 ========================
+            node.next = head;  // 设置当前节点的后继节点为反转链表的头节点
+            head = node;       // 更新反转链表的头节点
+            // =========================================================
 
             // 首尾照应，设置遍历的下一个节点
-            node = postNode;
+            node = temp;
         }
-        return preNode;
+        return head;
     }
 
 }

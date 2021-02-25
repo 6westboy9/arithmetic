@@ -1,9 +1,6 @@
 package q_0049;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 字母异位词分组
@@ -33,14 +30,23 @@ public class SolutionV3 {
         }
         Map<String, List<String>> map = new HashMap<>();
         for (String s : strs) {
-            char[] ca = new char[26];
+            byte[] ca = new byte[26];
             for (char c : s.toCharArray()) {
                 ca[c - 'a']++;
             }
-            String keyStr = String.valueOf(ca);
-            if (!map.containsKey(keyStr)) map.put(keyStr, new ArrayList<>());
+
+            System.out.println(Arrays.toString(ca));
+
+            String keyStr = Arrays.toString(ca);
+
+            if (!map.containsKey(keyStr)) {
+                map.put(keyStr, new ArrayList<>());
+            }
             map.get(keyStr).add(s);
         }
+
+
+
         return new ArrayList<>(map.values());
     }
 }

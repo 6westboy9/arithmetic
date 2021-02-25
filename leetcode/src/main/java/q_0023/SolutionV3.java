@@ -54,11 +54,13 @@ public class SolutionV3 {
             // l4 \  /
             //     l2
 
+            // 每次跳跃两个元素
             for (int i = 0; i < k; i += 2) {
-                if (i == k - 1) {
+                // 数组的最后一个链表元素，如上面的 l4
+                if (i == k - 1) {                                           // 数组为奇数时的情况
                     lists[idx++] = lists[i];
                 } else {
-                    lists[idx++] = merge2Lists(lists[i], lists[i + 1]);
+                    lists[idx++] = merge2Lists(lists[i], lists[i + 1]);     // 数组为偶数时的情况
                 }
             }
             k = idx;

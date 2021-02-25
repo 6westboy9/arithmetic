@@ -70,12 +70,12 @@ public class SolutionV1 {
 		public void put(int key, int value) {
 			Node node = map.get(key);
 			if (node != null) {
-				//更新值
+				// 更新值
 				node.v = value;
 				moveNodeToTail(node);
 			} else {
 				Node newNode = new Node(key, value);
-				//链表满，需要删除首节点
+				// 链表满，需要删除首节点
 				if (map.size() == size) {
 					Node delHead = removeHead();
 					map.remove(delHead.k);
@@ -102,10 +102,10 @@ public class SolutionV1 {
 				head = newNode;
 				tail = newNode;
 			} else {
-				//连接新节点
+				// 连接新节点
 				tail.next = newNode;
 				newNode.pre = tail;
-				//更新尾节点指针为新节点
+				// 更新尾节点指针为新节点
 				tail = newNode;
 			}
 		}
@@ -118,7 +118,7 @@ public class SolutionV1 {
 				head = node.next;
 				head.pre = null;
 			} else {
-				//调整双向链表指针
+				// 调整双向链表指针
 				node.pre.next = node.next;
 				node.next.pre = node.pre;
 			}

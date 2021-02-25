@@ -19,6 +19,10 @@ public class SolutionV1 {
         System.out.println(ListNode.ofValues(solution.rotateRight(l11, 7)));
 
     }
+
+    /**
+     * 易理解
+     */
     public ListNode rotateRight(ListNode head, int k) {
 
         if (head == null) {
@@ -26,23 +30,30 @@ public class SolutionV1 {
         }
 
         ListNode tempNode = head;
-        int count = 0;
+        int len = 0; // 计算链表的长度
         while (tempNode != null) {
-            count++;
+            len++;
             tempNode = tempNode.next;
         }
 
-        int mod = k % count;
+        int mod = k % len;
         if (mod == 0) {
             return head;
         } else {
             k = mod;
         }
 
+        // k 为
+
         ListNode slowPreNode = null;
         ListNode slowNode = null;
         ListNode curPreNode = null;
         ListNode curNode = head;
+
+        // curNode 为快指针
+        // slowNode 为慢指针，与 curNode 相差 k 个元素
+        // slowPreNode 为慢指针前驱结点
+        // curPreNode 为快指针前驱节点
         while (curNode != null) {
             if (k == 0) {
                 slowNode = head;

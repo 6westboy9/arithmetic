@@ -21,6 +21,7 @@ public class SolutionV1 {
     }
 
     public boolean hasCycle(ListNode head) {
+        // 链表为空或者只有一个节点
         if (head == null || head.next == null) {
             return false;
         }

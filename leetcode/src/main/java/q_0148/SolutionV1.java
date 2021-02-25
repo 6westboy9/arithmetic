@@ -23,8 +23,6 @@ public class SolutionV1 {
     // 要求时间复杂度为 O(nlogn)
     public ListNode sortList(ListNode head) {
         // 第一步：使用快慢指针确定链表的中点，并将链表从中点切分成两部分
-        // 第二步：二路归并两个链表
-
         if (head == null || head.next == null) {
             return head;
         }
@@ -47,6 +45,7 @@ public class SolutionV1 {
         // 切割成两部分
         preSlow.next = null;
 
+        // 第二步：二路归并两个链表
         ListNode l1 = sortList(head);
         ListNode l2 = sortList(slow);
         return twoWayMerge(l1, l2);

@@ -33,7 +33,7 @@ public class SolutionV1 {
             return nums;
         }
 
-        ArrayDeque<Integer> deque = new ArrayDeque<>();
+        LinkedList<Integer> deque = new LinkedList<>();
         int maxIdx = 0;
 
         for (int i = 0; i < k; i++) {
@@ -54,7 +54,7 @@ public class SolutionV1 {
         return result;
     }
 
-    private void cleanDeque(ArrayDeque<Integer> deque, int[] nums, int i, int k) {
+    private void cleanDeque(LinkedList<Integer> deque, int[] nums, int i, int k) {
         if (!deque.isEmpty() && deque.getFirst() == i - k) {
             deque.removeFirst();
         }

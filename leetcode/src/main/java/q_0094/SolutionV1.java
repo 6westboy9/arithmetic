@@ -1,4 +1,4 @@
-package q_0095;
+package q_0094;
 
 import base.TreeNode;
 
@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 二叉树的中序遍历，见 {@link q_0094.SolutionV1}
+ * 二叉树的前序遍历，见 {@link q_0144.SolutionV1}
+ * 二叉树的后序遍历，见 {@link q_0145.SolutionV1}
+ *
  * @author westboy
  * @since 2020/1/17
  */

@@ -27,6 +27,9 @@ public class SolutionV1 {
     static class MinStack {
 
         private final Stack<Integer> stack;
+        // 辅助记录每次压栈元素，对应它之前的所有最小元素值
+        // 比如压栈元素  2 0 3 0（从左往右依次压入）
+        // minStack 值  2 0 0 0（弹出元素时，minStack 也依次弹出）
         private final Stack<Integer> minStack;
 
         public MinStack() {

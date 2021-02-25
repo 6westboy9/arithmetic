@@ -28,7 +28,7 @@ public class SolutionV1 {
         int m;
         ListNode head = null;
         ListNode tail = null;
-        while (l1 != null || l2 != null || v != 0) {
+        while (l1 != null || l2 != null || v > 0) {
             int v1 = 0;
             int v2 = 0;
 

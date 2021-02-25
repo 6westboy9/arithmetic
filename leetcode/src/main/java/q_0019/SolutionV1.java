@@ -30,21 +30,24 @@ public class SolutionV1 {
     }
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
+        // 临时遍历节点指针（先走）
         ListNode current = head;
+        // 目标节点（n=0 后开始从头走，当 current 遍历完成时，target 指向的就是目标元素节点）
         ListNode target =  null;
+        // 目标节点的前驱节点
         ListNode preTarget = null;
 
         while (current != null) {
-
-            // 先找到目标元素
+            // 先找到目标元素，n=0 后开始从头走，当 current 遍历完成时，target 指向的就是目标元素节点
+            // 此处先尽心 --n，为什么呢？想想，如果我需要查找倒数第 1 个元素，也就是最后一个元素，此时 n=1，所以判断条件为 --n=0
+            // 此时 current 指向的是第一个元素，target 指向的也是第一个元素
+            // 下次循环，current 指向第二个元素，第一次循环找到的 target 才会赋值 preTarget，在 --n==0 后循环时，才会 target=target.next
             if (--n == 0) {
                 target = head;
             } else if (target != null) {
-                // 找到目标元素后续遍历操作
                 preTarget = target;
                 target = target.next;
             }
-
             current = current.next;
         }
 
@@ -53,10 +56,10 @@ public class SolutionV1 {
             return null;
         }
 
-        if (preTarget == null) {
+        if (preTarget == null) { // 目标元素为头节点
             head = head.next;
         } else {
-            preTarget.next = target.next;
+            preTarget.next = target.next; // 目标元素为非头节点
         }
         target = null;
 

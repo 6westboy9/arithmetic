@@ -21,8 +21,38 @@ public class SolutionV1 {
         System.out.println(solution.minPathSum(grid));
     }
 
-    public int minPathSum(int[][] grid) {
+    // m == grid.length
+    // n == grid[i].length
+    // 1 <= m, n <= 200
+    // 0 <= grid[i][j] <= 100
 
-        return 0;
+    // 动态规划
+    // dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + grid[i][j]
+    // dp[i][0] = dp[i-1][0] + grid[i][0]
+    // dp[0][j] = dp[0][j-1] + grid[0][j]
+    // dp[0][0] = grid[0][0]
+    public int minPathSum(int[][] grid) {
+        int[][] minGrid = new int[grid.length][grid[0].length];
+        for (int i = 0; i < grid.length; i++) {        // 按列
+            for (int j = 0; j < grid[i].length; j++) { // 按行
+                if (i == 0 && j == 0) {
+                    minGrid[i][j] = grid[i][j];
+                }
+
+                if (i == 0 && j > 0) {
+                    minGrid[i][j] = minGrid[i][j - 1] + grid[i][j];
+                }
+
+                if (i > 0 && j == 0) {
+                    minGrid[i][j] = minGrid[i - 1][j] + grid[i][j];
+                }
+
+                if (i > 0 && j > 0) {
+                    minGrid[i][j] = Math.min(minGrid[i - 1][j], minGrid[i][j - 1]) + + grid[i][j];
+                }
+            }
+        }
+        return minGrid[grid.length - 1][grid[0].length - 1];
     }
+
 }

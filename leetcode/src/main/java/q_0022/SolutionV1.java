@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 括号生成
+ *
  * @author pengbo.wang
  * @date 2020/07/27 9:40 下午
  */
@@ -31,6 +33,11 @@ public class SolutionV1 {
     //     return ans;
     // }
 
+    public List<String> generateParenthesis(int n) {
+        generate(0, 0, n, "");
+        return ans;
+    }
+
     // 第二步再进行优化
     // 左括号 可以随时加，只要不超标
     // 右括号 必须之前有左括号，且左括号个数 > 右括号个数
@@ -45,11 +52,6 @@ public class SolutionV1 {
         if (left > right) {
             generate(left, right + 1, n, s + ")");
         }
-    }
-
-    public List<String> generateParenthesis(int n) {
-        generate(0, 0, n, "");
-        return ans;
     }
 
 }
